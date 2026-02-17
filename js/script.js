@@ -294,7 +294,7 @@ function checkOrderExpiration() {
   const diff = Date.now() - parseInt(time, 10);
   if (diff >= 36000000) {
     clearCart();
-    showNotification('سوف يصلك الاردر في اسرع وقت ممكن ', 'warning');
+    showNotification('نورتنا ', 'warning');
   }
 }
 
