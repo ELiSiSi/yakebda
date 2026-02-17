@@ -255,8 +255,14 @@ function checkout(event) {
   // تنظيف الفورم
   document.getElementById('cartForm')?.reset();
 
-  // حذف السلة بعد 10 ساعات
-  setTimeout(clearCart, 36000000);
+  // حذف السلة فوراً بعد إتمام الطلب
+  cart = [];
+  localStorage.removeItem(CART_KEY);
+  localStorage.removeItem(ORDER_TIME_KEY);
+  updateCartCount();
+  if (document.getElementById('cartItems')) {
+    displayCartItems();
+  }
 
   // رسالة نجاح
   showNotification('تم إتمام الطلب بنجاح! سيتم التواصل معك قريبًا', 'success');
@@ -288,7 +294,7 @@ function checkOrderExpiration() {
   const diff = Date.now() - parseInt(time, 10);
   if (diff >= 36000000) {
     clearCart();
-    showNotification('تم حذف الطلب القديم تلقائيًا (مرت 10 ساعات)', 'warning');
+    showNotification('سوف يصلك الاردر في اسرع وقت ممكن ', 'warning');
   }
 }
 
