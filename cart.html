@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>السلة - يا كبدة | Ya Kebda</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="./logo.png" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <img src="./logo.png" alt="Ya Kebda Logo" />
+            <div class="logo-text">
+              <h1>يا كبدة</h1>
+              <p>أسرع واطلب نقعة جديدة</p>
+            </div>
+          </div>
+          <nav class="nav">
+            <a href="index.html">الرئيسية</a>
+            <a href="products.html">المنتجات</a>
+            <a href="offers.html">العروض</a>
+            <a href="cart.html" class="cart-link active">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              <span class="cart-count">0</span>
+            </a>
+          </nav>
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">الرئيسية</a>
+      <a href="products.html">المنتجات</a>
+      <a href="offers.html">العروض</a>
+      <a href="cart.html" class="active"
+        >السلة (<span class="cart-count">0</span>)</a
+      >
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>🛒 سلة التسوق</h1>
+        <p>راجع طلبك قبل الإتمام</p>
+      </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+      <div class="container">
+        <div class="cart-wrapper">
+          <!-- Empty Cart Message -->
+          <div class="empty-cart" id="emptyCart">
+            <div class="empty-cart-icon">🛒</div>
+            <h2>السلة فارغة</h2>
+            <p>لم تقم بإضافة أي منتجات بعد</p>
+            <a href="products.html" class="btn btn-primary">تصفح المنتجات</a>
+          </div>
+
+          <!-- Cart Items -->
+          <div class="cart-content" id="cartContent" style="display: none">
+            <form id="cartForm" onsubmit="checkout(event)">
+              <div class="cart-items" id="cartItems">
+                <!-- Cart items will be inserted here by JavaScript -->
+              </div>
+
+              <!-- Cart Summary -->
+              <div class="cart-summary">
+                <!-- ملخص الأسعار -->
+                <div class="summary-row">
+                  <span>المجموع الفرعي:</span>
+                  <span id="subtotal">0 جنيه</span>
+                </div>
+                <div class="summary-row">
+                  <span>رسوم التوصيل:</span>
+                  <span id="delivery">30 جنيه</span>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-row total">
+                  <span>المجموع الإجمالي:</span>
+                  <span id="total">0 جنيه</span>
+                </div>
+
+                <!-- بيانات العميل -->
+                <div class="customer-info" style="margin-top: 25px">
+                  <h4 style="color: var(--primary-color); margin-bottom: 15px">
+                    بيانات التوصيل
+                  </h4>
+
+                  <div class="form-group" style="margin-bottom: 15px">
+                    <label for="customerName"
+                      >الاسم الكامل <span style="color: #ff4444">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="customerName"
+                      name="customerName"
+                      placeholder="محمد أحمد"
+                      required
+                      style="
+                        width: 100%;
+                        padding: 12px;
+                        border-radius: 8px;
+                        border: 1px solid #444;
+                        background: var(--darker-bg);
+                        color: white;
+                      " />
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 15px">
+                    <label for="customerPhone"
+                      >رقم التليفون <span style="color: #ff4444">*</span></label
+                    >
+                    <input
+                      type="tel"
+                      id="customerPhone"
+                      name="customerPhone"
+                      placeholder="01xxxxxxxxx"
+                      required
+                      pattern="[0-9]{11}"
+                      style="
+                        width: 100%;
+                        padding: 12px;
+                        border-radius: 8px;
+                        border: 1px solid #444;
+                        background: var(--darker-bg);
+                        color: white;
+                      " />
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 15px">
+                    <label for="customerAddress"
+                      >العنوان بالتفصيل
+                      <span style="color: #ff4444">*</span></label
+                    >
+                    <textarea
+                      id="customerAddress"
+                      name="customerAddress"
+                      rows="3"
+                      placeholder="المحافظة - المدينة - الحي - الشارع - رقم العمارة - الدور - شقة"
+                      required
+                      style="
+                        width: 100%;
+                        padding: 12px;
+                        border-radius: 8px;
+                        border: 1px solid #444;
+                        background: var(--darker-bg);
+                        color: white;
+                        resize: vertical;
+                      "></textarea>
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 20px">
+                    <label for="notes">ملاحظات إضافية (اختياري)</label>
+                    <textarea
+                      id="notes"
+                      name="notes"
+                      rows="2"
+                      placeholder="مثال: من فضلك لا تضع شطة"
+                      style="
+                        width: 100%;
+                        padding: 12px;
+                        border-radius: 8px;
+                        border: 1px solid #444;
+                        background: var(--darker-bg);
+                        color: white;
+                        resize: vertical;
+                      "></textarea>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-checkout">
+                  إتمام الطلب
+                </button>
+                <a href="products.html" class="btn btn-outline">متابعة التسوق</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+      <div class="modal-content">
+        <div class="modal-icon success">✓</div>
+        <h2>تم الطلب بنجاح!</h2>
+        <p>شكراً لك! سيتم التواصل معك قريباً لتأكيد الطلب.</p>
+        <p class="modal-note">ملاحظة: سيتم حذف الطلب تلقائياً بعد 10 ساعات</p>
+        <button class="btn btn-primary" onclick="closeModal()">حسناً</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img
+              src="https://www.genspark.ai/api/files/s/HTQdjyvB"
+              alt="Ya Kebda" />
+            <p>أسرع واطلب نقعة جديدة</p>
+          </div>
+          <div class="footer-links">
+            <h4>روابط سريعة</h4>
+            <a href="index.html">الرئيسية</a>
+            <a href="products.html">المنتجات</a>
+            <a href="offers.html">العروض</a>
+            <a href="cart.html">السلة</a>
+          </div>
+          <div class="footer-contact">
+            <h4>تواصل معنا</h4>
+            <p>📞 +20 123 456 7890</p>
+            <p>📧 info@yakebda.com</p>
+            <p>📍 القاهرة، مصر</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 يا كبدة - Ya Kebda. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

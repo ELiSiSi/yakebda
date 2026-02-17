@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العروض - يا كبدة | Ya Kebda</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="./logo.png">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="https://www.genspark.ai/api/files/s/HTQdjyvB" alt="Ya Kebda Logo">
+                    <div class="logo-text">
+                        <h1>يا كبدة</h1>
+                        <p>أسرع واطلب نقعة جديدة</p>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">الرئيسية</a>
+                    <a href="products.html">المنتجات</a>
+                    <a href="offers.html" class="active">العروض</a>
+                    <a href="cart.html" class="cart-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </a>
+                </nav>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="offers.html" class="active">العروض</a>
+        <a href="cart.html">
+            السلة
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="cart-count">0</span>
+        </a>
+    </div>
+   <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+          <h1>العروض 🎉</h1>
+        <p>عرض مختلف كل يوم من أيام الأسبوع – استمتع بأشهى الأطباق بأسعار مميزة!</p>
+      </div>
+    </section>
+
+    <!-- Offers Section – نفس ستايل المنتجات تقريبًا -->
+    <section class="products-section offers-section">
+        <div class="container">
+            <div class="products-grid" id="offersGrid">
+
+                <!-- عرض واحد (مثال – كرره لو عايز عروض أكتر) -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./91403-الكبدة-الاسكندراني.jpg" alt="كومبو كبدة + سجق">
+                        <span class="product-badge hot">عروووض 🔥</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>كومبو كبدة + سجق</h3>
+
+                        <p>طبق كبدة إسكندراني أصلي + طبق سجق بلدي طازج – عرض خاص يوم الجمعة فقط!</p>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                <span class="old-price">650</span>
+                                <span class="price">499</span>
+                                <span class="currency">جنيه</span>
+                            </div>
+                        <button class="btn btn-add-cart"
+        onclick="addToCart('كومبو كبدة + سجق', 499, './91403-الكبدة-الاسكندراني.jpg')">
+    أضف للسلة
+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- لو عايز تضيف عرض تاني، انسخ الـ div ده وغير البيانات -->
+                <!-- مثال ثاني -->
+                <!--
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800" alt="كبدة بالثوم عرض">
+                        <span class="product-badge">عرض الخميس</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>كبدة بالثوم – عرض اليوم</h3>
+                        ...
+                    </div>
+                </div>
+                -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://www.genspark.ai/api/files/s/HTQdjyvB" alt="Ya Kebda">
+                    <p>أسرع واطلب نقعة جديدة</p>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <a href="index.html">الرئيسية</a>
+                    <a href="products.html">المنتجات</a>
+                    <a href="offers.html">العروض</a>
+                    <a href="cart.html">السلة</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>تواصل معنا</h4>
+                    <p>📞 +20 123 456 7890</p>
+                    <p>📧 info@yakebda.com</p>
+                    <p>📍 القاهرة، مصر</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 يا كبدة - Ya Kebda. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

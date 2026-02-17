@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المنتجات - يا كبدة | Ya Kebda</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="./logo.png" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <img src="/logo.png" alt="Ya Kebda Logo" />
+            <div class="logo-text">
+              <h1>يا كبدة</h1>
+              <p>أسرع واطلب نقعة جديدة</p>
+            </div>
+          </div>
+          <nav class="nav">
+            <a href="index.html">الرئيسية</a>
+            <a href="products.html" class="active">المنتجات</a>
+            <a href="offers.html">العروض</a>
+            <a href="cart.html" class="cart-link">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              <span class="cart-count">0</span>
+            </a>
+          </nav>
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">الرئيسية</a>
+      <a href="products.html" class="active">المنتجات</a>
+      <a href="offers.html">العروض</a>
+      <a href="cart.html"
+        >السلة
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path
+            d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="cart-count">0</span></a
+      >
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>المنيو</h1>
+        <p>اختر من بين أشهى الأطباق المصرية الأصيلة</p>
+      </div>
+    </section>
+
+    <!-- Category Tabs -->
+    <section class="category-tabs">
+      <div class="container">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="filterProducts('all')">
+            الكل
+          </button>
+          <button class="tab-btn" onclick="filterProducts('kebda')">
+            كبدة
+          </button>
+          <button class="tab-btn" onclick="filterProducts('sausage')">
+            سجق
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+      <div class="container">
+        <div class="products-grid" id="productsGrid">
+          <!-- Kebda Products -->
+          <div class="product-card" data-category="kebda">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=500"
+                alt="كبدة إسكندراني" />
+              <span class="product-badge">الأكثر مبيعاً</span>
+            </div>
+            <div class="product-info">
+              <h3>كبدة إسكندراني</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-number">4.9</span>
+              </div>
+              <p>
+                كبدة طازجة متبلة على الطريقة الإسكندرانية الأصيلة مع الطحينة
+                والليمون
+              </p>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price">349</span>
+                  <span class="currency">جنيه</span>
+                </div>
+                <button
+                  class="btn btn-add-cart"
+                  onclick="
+                    addToCart(
+                      'كبدة إسكندراني',
+                      349,
+                      'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=500'
+                    )
+                  ">
+                  أضف للسلة
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="kebda">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=500"
+                alt="كبدة بالطحينة" />
+            </div>
+            <div class="product-info">
+              <h3>كبدة بالطحينة</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-number">4.8</span>
+              </div>
+              <p>كبدة طازجة مع صوص الطحينة الشهي والبقدونس الطازج</p>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price">329</span>
+                  <span class="currency">جنيه</span>
+                </div>
+                <button
+                  class="btn btn-add-cart"
+                  onclick="
+                    addToCart(
+                      'كبدة بالطحينة',
+                      329,
+                      'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=500'
+                    )
+                  ">
+                  أضف للسلة
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="kebda">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500"
+                alt="كبدة بالثوم" />
+            </div>
+            <div class="product-info">
+              <h3>كبدة بالثوم</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-number">4.7</span>
+              </div>
+              <p>كبدة طازجة متبلة بالثوم والفلفل الحار والليمون</p>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price">339</span>
+                  <span class="currency">جنيه</span>
+                </div>
+                <button
+                  class="btn btn-add-cart"
+                  onclick="
+                    addToCart(
+                      'كبدة بالثوم',
+                      339,
+                      'https://images.unsplash.com/photo-1544025162-d76694265947?w=500'
+                    )
+                  ">
+                  أضف للسلة
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="kebda">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=500"
+                alt="كبدة مشوية" />
+              <span class="product-badge new">جديد</span>
+            </div>
+            <div class="product-info">
+              <h3>كبدة مشوية</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-number">4.9</span>
+              </div>
+              <p>كبدة طازجة مشوية على الفحم مع البصل والطماطم</p>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price">369</span>
+                  <span class="currency">جنيه</span>
+                </div>
+                <button
+                  class="btn btn-add-cart"
+                  onclick="
+                    addToCart(
+                      'كبدة مشوية',
+                      369,
+                      'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=500'
+                    )
+                  ">
+                  أضف للسلة
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="kebda">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=500"
+                alt="كبدة بالبصل" />
+            </div>
+            <div class="product-info">
+              <h3>كبدة بالبصل</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-number">4.6</span>
+              </div>
+              <p>كبدة طازجة مع البصل المقلي والفلفل الأخضر</p>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price">319</span>
+                  <span class="currency">جنيه</span>
+                </div>
+                <button
+                  class="btn btn-add-cart"
+                  onclick="
+                    addToCart(
+                      'كبدة بالبصل',
+                      319,
+                      'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=500'
+                    )
+                  ">
+                  أضف للسلة
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sausage Products -->
+          <div class="product-card" data-category="sausage">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=500"
+                alt="سجق بلدي" />
+              <span class="product-badge">مميز</span>
+            </div>
+            <div class="product-info">
+              <h3>سجق بلدي</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-number">4.8</span>
+              </div>
+              <p>سجق بلدي طازج متبل بأفضل التوابل المصرية الأصيلة</p>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price">299</span>
+                  <span class="currency">جنيه</span>
+                </div>
+                <button
+                  class="btn btn-add-cart"
+                  onclick="
+                    addToCart(
+                      'سجق بلدي',
+                      299,
+                      'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=500'
+                    )
+                  ">
+                  أضف للسلة
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="sausage">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1612392062798-2dbae36e6b3e?w=500"
+                alt="سجق إسكندراني" />
+            </div>
+            <div class="product-info">
+              <h3>سجق إسكندراني</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-number">4.9</span>
+              </div>
+              <p>سجق على الطريقة الإسكندرانية مع الطحينة والليمون</p>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price">329</span>
+                  <span class="currency">جنيه</span>
+                </div>
+                <button
+                  class="btn btn-add-cart"
+                  onclick="
+                    addToCart(
+                      'سجق إسكندراني',
+                      329,
+                      'https://images.unsplash.com/photo-1612392062798-2dbae36e6b3e?w=500'
+                    )
+                  ">
+                  أضف للسلة
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="sausage">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500"
+                alt="سجق حار" />
+              <span class="product-badge hot">🔥 حار</span>
+            </div>
+            <div class="product-info">
+              <h3>سجق حار</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-number">4.7</span>
+              </div>
+              <p>سجق طازج مع الشطة الحارة والفلفل الحار</p>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price">309</span>
+                  <span class="currency">جنيه</span>
+                </div>
+                <button
+                  class="btn btn-add-cart"
+                  onclick="
+                    addToCart(
+                      'سجق حار',
+                      309,
+                      'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500'
+                    )
+                  ">
+                  أضف للسلة
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="sausage">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500"
+                alt="سجق مشوي" />
+            </div>
+            <div class="product-info">
+              <h3>سجق مشوي</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-number">4.8</span>
+              </div>
+              <p>سجق طازج مشوي على الفحم مع البصل والطماطم</p>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price">349</span>
+                  <span class="currency">جنيه</span>
+                </div>
+                <button
+                  class="btn btn-add-cart"
+                  onclick="
+                    addToCart(
+                      'سجق مشوي',
+                      349,
+                      'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500'
+                    )
+                  ">
+                  أضف للسلة
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="sausage">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500"
+                alt="سجق بالجبنة" />
+              <span class="product-badge new">جديد</span>
+            </div>
+            <div class="product-info">
+              <h3>سجق بالجبنة</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-number">4.6</span>
+              </div>
+              <p>سجق طازج مع الجبنة الموتزاريلا والفلفل الرومي</p>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="price">359</span>
+                  <span class="currency">جنيه</span>
+                </div>
+                <button
+                  class="btn btn-add-cart"
+                  onclick="
+                    addToCart(
+                      'سجق بالجبنة',
+                      359,
+                      'https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500'
+                    )
+                  ">
+                  أضف للسلة
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="./logo.png" alt="Ya Kebda" />
+            <p>أسرع واطلب نقعة جديدة</p>
+          </div>
+          <div class="footer-links">
+            <h4>روابط سريعة</h4>
+            <a href="index.html">الرئيسية</a>
+            <a href="products.html">المنتجات</a>
+            <a href="offers.html">العروض</a>
+            <a href="cart.html">السلة</a>
+          </div>
+          <div class="footer-contact">
+            <h4>تواصل معنا</h4>
+            <p>📞 +20 123 456 7890</p>
+            <p>📧 info@yakebda.com</p>
+            <p>📍 القاهرة، مصر</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 يا كبدة - Ya Kebda. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
